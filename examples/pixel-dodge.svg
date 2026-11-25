@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" id="game" width="480" height="640" viewBox="0 0 480 640" style="touch-action:none;max-width:100%;height:auto">
+  <title>Pixel Dodge</title>
+  <style>
+    text { font-family: 'Courier New', Consolas, monospace; fill: #f4efdf; }
+    .btn { cursor: pointer; }
+  </style>
+
+  <rect width="480" height="640" fill="#0c1217"/>
+  <rect id="player" x="216" y="580" width="48" height="24" fill="#c5ff65"/>
+  <g id="objects"></g>
+  <text id="score" x="16" y="30" font-size="20">SCORE 0</text>
+
+  <g id="over" visibility="hidden">
+    <rect x="90" y="220" width="300" height="200" fill="#151e25" stroke="#ff7b87" stroke-width="3"/>
+    <text x="240" y="275" text-anchor="middle" font-size="30" fill="#ff7b87">GAME OVER</text>
+    <text id="final" x="240" y="315" text-anchor="middle" font-size="18">SCORE 0</text>
+    <g id="restart" class="btn">
+      <rect x="165" y="340" width="150" height="44" fill="#c5ff65"/>
+      <text x="240" y="368" text-anchor="middle" font-size="18" style="fill:#0c1217">RESTART</text>
+    </g>
+  </g>
+
+  <script><![CDATA[
+    const W = 480, H = 640, PW = 48, PY = 580;
+    const svg = document.getElementById('game');
+    const player = document.getElementById('player');
+    const objs = document.getElementById('objects');
+    const scoreEl = document.getElementById('score');
+    const over = document.getElementById('over');
+    const finalEl = document.getElementById('final');
+    const NS = 'http://www.w3.org/2000/svg';
+
+    let px, items, score, tick, speed, alive;
+    const keys = { left: false, right: false };
+
+    function reset() {
+      px = 216; items = []; score = 0; tick = 0; speed = 2; alive = true;
+      over.setAttribute('visibility', 'hidden');
+    }
+
+    function spawn() {
+      const w = 28 + Math.random() * 40;
+      items.push({ x: Math.random() * (W - w), y: -30, w: w, s: speed + Math.random() * 1.5 });
+    }
+
+    function update() {
+      if (!alive) return;
+      if (keys.left) px -= 6;
+      if (keys.right) px += 6;
+      px = Math.max(0, Math.min(W - PW, px));
+
+      tick++;
+      if (tick % 50 === 0) spawn();
+      if (tick % 600 === 0) speed += 0.5;
+      score = Math.floor(tick / 6);
+
+      for (const o of items) {
+        o.y += o.s;
+        const hitY = o.y + 14 > PY && o.y < PY + 24;
+        const hitX = o.x + o.w > px && o.x < px + PW;
+        if (hitY && hitX) {
+          alive = false;
+          over.setAttribute('visibility', 'visible');
+          finalEl.textContent = 'SCORE ' + score;
+        }
+      }
+      items = items.filter(o => o.y < H + 40);
+    }
+
+    function draw() {
+      player.setAttribute('x', px);
+      scoreEl.textContent = 'SCORE ' + score;
+      objs.textContent = '';
+      for (const o of items) {
+        const r = document.createElementNS(NS, 'rect');
+        r.setAttribute('x', o.x);
+        r.setAttribute('y', o.y);
+        r.setAttribute('width', o.w);
+        r.setAttribute('height', 24);
+        r.setAttribute('fill', '#ff7b87');
+        objs.appendChild(r);
+      }
+    }
+
+    function loop() {
+      update();
+      draw();
+      requestAnimationFrame(loop);
+    }
+
+    // Keyboard: arrows or A/D to move, R or Enter to restart
+    window.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft' || e.key === 'a') keys.left = true;
+      if (e.key === 'ArrowRight' || e.key === 'd') keys.right = true;
+      if (!alive && (e.key === 'r' || e.key === 'Enter')) reset();
+      if (e.key.startsWith('Arrow')) e.preventDefault();
+    });
+    window.addEventListener('keyup', e => {
+      if (e.key === 'ArrowLeft' || e.key === 'a') keys.left = false;
+      if (e.key === 'ArrowRight' || e.key === 'd') keys.right = false;
+    });
+
+    // Mouse / touch: the player follows the pointer
+    svg.addEventListener('pointermove', e => {
+      const r = svg.getBoundingClientRect();
+      px = (e.clientX - r.left) * W / r.width - PW / 2;
+    });
+
+    document.getElementById('restart').addEventListener('click', reset);
+
+    reset();
+    loop();
+  ]]></script>
+</svg>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="root" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1200 900" style="display:block;touch-action:manipulation">
+  <title>SVG YSWS</title>
+  <desc>Grind SVG. Build Games. Get a Handheld.</desc>
+
+  <style>
+    text { font-family: 'Courier New', Courier, monospace; fill: #1d262b; }
+    .head { font-weight: bold; }
+    .muted { fill: #5b5b4a; }
+    .nav { cursor: pointer; }
+    .nav rect { fill: #efe6cf; stroke: #1d262b; stroke-width: 3; }
+    .nav text { font-size: 14px; font-weight: bold; }
+    .nav.on rect { fill: #1d262b; }
+    .nav.on text { fill: #efe6cf; }
+    .btn { cursor: pointer; }
+    .btn rect { fill: #8bac0f; stroke: #1d262b; stroke-width: 3; }
+    .btn text { font-size: 16px; font-weight: bold; fill: #0f380f; }
+    .btn:hover rect { fill: #9bbc0f; }
+    .btn.ghost rect { fill: #efe6cf; }
+    .btn.ghost text { fill: #1d262b; }
+    .panel { fill: #f7f1de; stroke: #1d262b; stroke-width: 3; }
+    .tab { cursor: pointer; }
+    .tab rect { fill: #efe6cf; stroke: #1d262b; stroke-width: 3; }
+    .tab text { font-size: 14px; font-weight: bold; }
+    .tab.on rect { fill: #1d262b; }
+    .tab.on text { fill: #efe6cf; }
+    .sec { display: none; }
+    .sec.on { display: inline; }
+    .mpage { display: none; }
+    .mpage.on { display: inline; }
+    .bob { animation: bob 2.4s steps(2, end) infinite; }
+    @keyframes bob { 0%,100% { translate: 0 0; } 50% { translate: 0 -6px; } }
+  </style>
+
+  <!-- Full-bleed cream background (covers any window size) -->
+  <rect x="-4000" y="-4000" width="9000" height="9000" fill="#efe6cf"/>
+
+  <g id="stage">
+    <!-- Outer frame -->
+    <rect x="20" y="20" width="1160" height="860" fill="none" stroke="#1d262b" stroke-width="6"/>
+
+    <!-- Top bar -->
+    <image href="favicon.png" x="44" y="26" width="34" height="52" preserveAspectRatio="xMidYMid meet"/>
+    <text x="92" y="64" font-size="22" class="head">SVG YSWS</text>
+
+    <g class="nav on" data-sec="s-home" transform="translate(420 42)"><rect width="110" height="34"/><text x="55" y="22" text-anchor="middle">HOME</text></g>
+    <g class="nav" data-sec="s-mission" transform="translate(540 42)"><rect width="120" height="34"/><text x="60" y="22" text-anchor="middle">MISSION</text></g>
+    <a href="games.svg"><g class="nav" transform="translate(670 42)"><rect width="120" height="34"/><text x="60" y="22" text-anchor="middle">GAMES</text></g></a>
+    <g class="nav" data-sec="s-learn" transform="translate(800 42)"><rect width="110" height="34"/><text x="55" y="22" text-anchor="middle">LEARN</text></g>
+    <g class="nav" data-sec="s-join" transform="translate(1050 42)"><rect width="84" height="34"/><text x="42" y="22" text-anchor="middle">JOIN</text></g>
+    <line x1="20" y1="100" x2="1180" y2="100" stroke="#1d262b" stroke-width="3"/>
+
+    <!-- HOME -->
+    <g id="s-home" class="sec on">
+      <text x="60" y="200" font-size="72" class="head">GRIND A GAME</text>
+      <text x="60" y="275" font-size="72" class="head">IN SVG.</text>
+      <text x="60" y="340" font-size="22">Grind SVG. Build Games. Get a Handheld.</text>
+      <text x="60" y="390" font-size="17" class="muted">Make a playable game in one .svg file.</text>
+      <text x="60" y="416" font-size="17" class="muted">We ship you a mini retro handheld.</text>
+      <g class="btn" data-sec="s-mission" transform="translate(60 470)"><rect width="250" height="54"/><text x="125" y="33" text-anchor="middle">START GRINDING</text></g>
+      <a href="games.svg"><g class="btn ghost" transform="translate(330 470)"><rect width="210" height="54"/><text x="105" y="33" text-anchor="middle">EXPLORE GAMES</text></g></a>
+
+      <!-- Handheld -->
+      <g class="bob" transform="translate(800 170)">
+        <rect width="330" height="430" rx="18" fill="#c9c3a6" stroke="#1d262b" stroke-width="6"/>
+        <rect x="40" y="40" width="250" height="230" rx="8" fill="#4a4a3d" stroke="#1d262b" stroke-width="4"/>
+        <rect x="60" y="60" width="210" height="190" fill="#9bbc0f"/>
+        <rect x="60" y="200" width="210" height="50" fill="#306230"/>
+        <rect x="138" y="132" width="26" height="26" fill="#0f380f"/>
+        <rect x="132" y="144" width="38" height="12" fill="#0f380f"/>
+        <rect x="200" y="98" width="10" height="10" fill="#0f380f"/>
+        <rect x="45" y="312" width="22" height="78" fill="#1d262b"/>
+        <rect x="20" y="338" width="72" height="22" fill="#1d262b"/>
+        <circle cx="282" cy="330" r="18" fill="#a8345a" stroke="#1d262b" stroke-width="3"/>
+        <circle cx="246" cy="362" r="18" fill="#a8345a" stroke="#1d262b" stroke-width="3"/>
+        <text x="165" y="410" text-anchor="middle" font-size="11" class="muted" letter-spacing="3">SVG YSWS</text>
+      </g>
+    </g>
+
+    <!-- MISSION: three tabs, two steps each -->
+    <g id="s-mission" class="sec">
+      <text x="60" y="170" font-size="56" class="head">THE MISSION</text>
+      <text x="60" y="210" font-size="18" class="muted">Six steps, in three parts. You build it, we review it.</text>
+
+      <g class="tab on" data-mtab="m1" transform="translate(60 240)"><rect width="200" height="42"/><text x="100" y="27" text-anchor="middle">1 · LEARN</text></g>
+      <g class="tab" data-mtab="m2" transform="translate(272 240)"><rect width="200" height="42"/><text x="100" y="27" text-anchor="middle">2 · MAKE IT</text></g>
+      <g class="tab" data-mtab="m3" transform="translate(484 240)"><rect width="200" height="42"/><text x="100" y="27" text-anchor="middle">3 · REWARD</text></g>
+
+      <g id="m1" class="mpage on" font-size="22" transform="translate(60 310)">
+        <rect class="panel" width="520" height="64"/><text x="24" y="41"><tspan class="head">1</tspan>  Learn SVG</text>
+        <rect class="panel" y="82" width="520" height="64"/><text x="24" y="123"><tspan class="head">2</tspan>  Build a game</text>
+      </g>
+      <g id="m2" class="mpage" font-size="22" transform="translate(60 310)">
+        <rect class="panel" width="520" height="64"/><text x="24" y="41"><tspan class="head">3</tspan>  Make it playable</text>
+        <rect class="panel" y="82" width="520" height="64"/><text x="24" y="123"><tspan class="head">4</tspan>  Submit your project</text>
+      </g>
+      <g id="m3" class="mpage" font-size="22" transform="translate(60 310)">
+        <rect class="panel" width="520" height="64"/><text x="24" y="41"><tspan class="head">5</tspan>  Get reviewed</text>
+        <rect class="panel" y="82" width="520" height="64"/><text x="24" y="123"><tspan class="head">6</tspan>  Earn your reward</text>
+      </g>
+
+      <!-- Handheld, right side -->
+      <g class="bob" transform="translate(720 300) scale(0.8)">
+        <rect width="330" height="430" rx="18" fill="#c9c3a6" stroke="#1d262b" stroke-width="6"/>
+        <rect x="40" y="40" width="250" height="230" rx="8" fill="#4a4a3d" stroke="#1d262b" stroke-width="4"/>
+        <rect x="60" y="60" width="210" height="190" fill="#9bbc0f"/>
+        <rect x="60" y="200" width="210" height="50" fill="#306230"/>
+        <rect x="45" y="312" width="22" height="78" fill="#1d262b"/>
+        <rect x="20" y="338" width="72" height="22" fill="#1d262b"/>
+        <circle cx="282" cy="330" r="18" fill="#a8345a" stroke="#1d262b" stroke-width="3"/>
+        <circle cx="246" cy="362" r="18" fill="#a8345a" stroke="#1d262b" stroke-width="3"/>
+      </g>
+    </g>
+
+    <!-- LEARN -->
+    <g id="s-learn" class="sec">
+      <text x="60" y="170" font-size="56" class="head">LEARN SVG</text>
+      <text x="60" y="210" font-size="18" class="muted">If you can draw a rectangle, you can make a game.</text>
+      <g font-size="20">
+        <text x="60" y="270" class="head">SHAPES</text><text x="60" y="300" class="muted">rect, circle, path</text>
+        <text x="60" y="350" class="head">COORDINATES</text><text x="60" y="380" class="muted">0,0 is the top-left</text>
+        <text x="60" y="430" class="head">INPUT</text><text x="60" y="460" class="muted">keyboard and pointer</text>
+        <text x="380" y="270" class="head">COLLISIONS</text><text x="380" y="300" class="muted">check overlapping boxes</text>
+        <text x="380" y="350" class="head">SCORE</text><text x="380" y="380" class="muted">count up each frame</text>
+        <text x="380" y="430" class="head">GAME LOOP</text><text x="380" y="460" class="muted">update, draw, repeat</text>
+      </g>
+      <a href="SVG-GAME-GUIDE.svg"><g class="btn" transform="translate(60 530)"><rect width="300" height="54"/><text x="150" y="33" text-anchor="middle">OPEN THE BEGINNER GUIDE</text></g></a>
+
+      <image href="logo.png" x="800" y="330" width="300" height="202" preserveAspectRatio="xMidYMid meet"/>
+    </g>
+
+    <!-- JOIN -->
+    <g id="s-join" class="sec">
+      <text x="60" y="170" font-size="56" class="head">HOW TO JOIN</text>
+      <g transform="translate(60 196)"><rect width="200" height="36" fill="#a8345a" stroke="#1d262b" stroke-width="3"/><text x="100" y="24" text-anchor="middle" font-size="15" class="head" style="fill:#efe6cf">COMING SOON</text></g>
+      <text x="60" y="300" font-size="30" class="head">Join #svg for updates</text>
+    </g>
+
+    <!-- Footer -->
+    <line x1="20" y1="800" x2="1180" y2="800" stroke="#1d262b" stroke-width="3"/>
+    <text x="48" y="840" font-size="14">SVG YSWS · make a game in SVG</text>
+    <a href="https://forms.hackclub.com/bounty" target="_blank">
+      <text x="600" y="840" text-anchor="middle" font-size="14" class="head">Fulfillment Bounty</text>
+    </a>
+    <a href="https://hackclub.com/privacy-and-terms" target="_blank">
+      <text x="1152" y="840" text-anchor="end" font-size="14" class="head">Privacy and Terms</text>
+    </a>
+  </g>
+
+  <script><![CDATA[
+    // Fit the layout to the window: no empty borders, phones use a narrower scale
+    function fit() {
+      const W = window.innerWidth, H = window.innerHeight;
+      document.getElementById('root').setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+      const s = W < 700 ? W / 1200 : Math.min(W / 1200, H / 900);
+      const tx = (W - 1200 * s) / 2, ty = (H - 900 * s) / 2;
+      document.getElementById('stage').setAttribute('transform', 'translate(' + tx + ' ' + ty + ') scale(' + s + ')');
+    }
+    window.addEventListener('resize', fit);
+    fit();
+
+    // Section navigation (nav buttons and any element with data-sec)
+    document.querySelectorAll('[data-sec]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        const target = btn.getAttribute('data-sec');
+        document.querySelectorAll('.nav').forEach(function (n) { n.classList.remove('on'); });
+        document.querySelectorAll('.nav[data-sec="' + target + '"]').forEach(function (n) { n.classList.add('on'); });
+        document.querySelectorAll('.sec').forEach(function (s) {
+          s.classList.toggle('on', s.id === target);
+        });
+      });
+    });
+
+    // Mission tabs: show one pair of steps at a time
+    document.querySelectorAll('[data-mtab]').forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        const target = tab.getAttribute('data-mtab');
+        document.querySelectorAll('[data-mtab]').forEach(function (t) { t.classList.remove('on'); });
+        tab.classList.add('on');
+        document.querySelectorAll('.mpage').forEach(function (p) {
+          p.classList.toggle('on', p.id === target);
+        });
+      });
+    });
+  ]]></script>
+</svg>

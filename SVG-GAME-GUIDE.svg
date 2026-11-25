@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="root" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1200 900" style="display:block">
+  <title>SVG YSWS: Beginner guide, Pixel Dodge</title>
+  <desc>Six tabs. Build your first SVG game step by step.</desc>
+
+  <style>
+    text { font-family: 'Courier New', Courier, monospace; fill: #1d262b; }
+    .head { font-weight: bold; }
+    .muted { fill: #5b5b4a; }
+    .code { font-size: 14px; fill: #1d262b; }
+    .codebg { fill: #1d262b; }
+    .codetxt { font-size: 14px; fill: #efe6cf; }
+    .tab { cursor: pointer; }
+    .tab rect { fill: #efe6cf; stroke: #1d262b; stroke-width: 3; }
+    .tab text { font-size: 14px; font-weight: bold; }
+    .tab.on rect { fill: #1d262b; }
+    .tab.on text { fill: #efe6cf; }
+    .page { display: none; }
+    .page.on { display: inline; }
+  </style>
+
+  <rect x="-4000" y="-4000" width="9000" height="9000" fill="#efe6cf"/>
+
+  <g id="stage">
+    <rect x="20" y="20" width="1160" height="860" fill="none" stroke="#1d262b" stroke-width="6"/>
+
+    <!-- Top bar -->
+    <image href="favicon.png" x="48" y="40" width="22" height="34" preserveAspectRatio="xMidYMid meet"/>
+    <text x="80" y="64" font-size="22" class="head">SVG YSWS</text>
+    <a href="index.svg"><text x="1152" y="64" text-anchor="end" font-size="14" class="head">← BACK TO HOME</text></a>
+    <line x1="20" y1="90" x2="1180" y2="90" stroke="#1d262b" stroke-width="3"/>
+
+    <!-- Tabs -->
+    <g class="tab on" data-page="p1" transform="translate(48 110)"><rect width="170" height="40"/><text x="85" y="26" text-anchor="middle">1 BASICS</text></g>
+    <g class="tab" data-page="p2" transform="translate(228 110)"><rect width="170" height="40"/><text x="85" y="26" text-anchor="middle">2 PLAYER</text></g>
+    <g class="tab" data-page="p3" transform="translate(408 110)"><rect width="170" height="40"/><text x="85" y="26" text-anchor="middle">3 ENEMIES</text></g>
+    <g class="tab" data-page="p4" transform="translate(588 110)"><rect width="170" height="40"/><text x="85" y="26" text-anchor="middle">4 HITS</text></g>
+    <g class="tab" data-page="p5" transform="translate(768 110)"><rect width="170" height="40"/><text x="85" y="26" text-anchor="middle">5 SCORE</text></g>
+    <g class="tab" data-page="p6" transform="translate(948 110)"><rect width="170" height="40"/><text x="85" y="26" text-anchor="middle">6 FINISH</text></g>
+
+    <!-- PAGE 1: BASICS -->
+    <g id="p1" class="page on">
+      <text x="48" y="190" font-size="26" class="head">Part 1: What is SVG?</text>
+      <text x="48" y="226" font-size="16">SVG draws pictures from shapes, written as text.</text>
+      <text x="48" y="252" font-size="16">Shapes: rect (box), circle (ball), path (any shape).</text>
+      <text x="48" y="278" font-size="16">Coordinates: (0,0) is the top-left. x goes right,</text>
+      <text x="48" y="304" font-size="16">y goes DOWN.</text>
+      <image href="guide-assets/02-coordinates.svg" x="700" y="180" width="450" height="300" preserveAspectRatio="xMidYMid meet"/>
+
+      <text x="48" y="352" font-size="16" class="head">Your first file: save this as my-game.svg</text>
+      <rect class="codebg" x="48" y="366" width="1104" height="170"/>
+      <text x="68" y="396" class="codetxt">&lt;svg xmlns="http://www.w3.org/2000/svg"</text>
+      <text x="68" y="418" class="codetxt">     width="480" height="640" viewBox="0 0 480 640"&gt;</text>
+      <text x="68" y="440" class="codetxt">  &lt;rect width="480" height="640" fill="#0c1217"/&gt;</text>
+      <text x="68" y="462" class="codetxt">  &lt;text x="240" y="320" text-anchor="middle"</text>
+      <text x="68" y="484" class="codetxt">       font-size="24" fill="#f4efdf"&gt;Hello, game!&lt;/text&gt;</text>
+      <text x="68" y="506" class="codetxt">&lt;/svg&gt;</text>
+      <text x="48" y="570" font-size="16">Double-click the file. You should see "Hello, game!"</text>
+    </g>
+
+    <!-- PAGE 2: PLAYER -->
+    <g id="p2" class="page">
+      <text x="48" y="190" font-size="26" class="head">Part 2: Draw and move the player</text>
+      <text x="48" y="224" font-size="16">The player is a green box near the bottom of the screen.</text>
+      <rect class="codebg" x="48" y="240" width="1104" height="36"/>
+      <text x="68" y="264" class="codetxt">&lt;rect id="player" x="216" y="580" width="48" height="24" fill="#9bd36b"/&gt;</text>
+
+      <text x="48" y="312" font-size="16">Add a script before the closing svg tag. Wrap it in CDATA.</text>
+      <rect class="codebg" x="48" y="328" width="1104" height="178"/>
+      <text x="68" y="354" class="codetxt">const player = document.getElementById('player');</text>
+      <text x="68" y="376" class="codetxt">let px = 216;</text>
+      <text x="68" y="398" class="codetxt">function draw() { player.setAttribute('x', px); }</text>
+      <text x="68" y="420" class="codetxt">window.addEventListener('keydown', e =&gt; {</text>
+      <text x="68" y="442" class="codetxt">  if (e.key === 'ArrowLeft')  px -= 8;</text>
+      <text x="68" y="464" class="codetxt">  if (e.key === 'ArrowRight') px += 8;</text>
+      <text x="68" y="486" class="codetxt">  px = Math.max(0, Math.min(432, px));</text>
+      <text x="68" y="508" class="codetxt">  draw();</text>
+      <text x="68" y="530" class="codetxt">});</text>
+      <text x="48" y="574" font-size="16">Press the left and right arrows. The player moves.</text>
+      <text x="48" y="600" font-size="16" class="muted">Why 432? The player is 48 wide and the screen is 480.</text>
+    </g>
+
+    <!-- PAGE 3: ENEMIES -->
+    <g id="p3" class="page">
+      <text x="48" y="190" font-size="26" class="head">Part 3: Make enemies fall</text>
+      <text x="48" y="224" font-size="16">Keep a list of enemies. Each frame, move them down.</text>
+      <rect class="codebg" x="48" y="240" width="1104" height="290"/>
+      <text x="68" y="266" class="codetxt">let items = [], tick = 0;</text>
+      <text x="68" y="288" class="codetxt">const objs = document.getElementById('objects');</text>
+      <text x="68" y="310" class="codetxt">function spawn() {</text>
+      <text x="68" y="332" class="codetxt">  items.push({ x: Math.random() * 440, y: -30, w: 40 });</text>
+      <text x="68" y="354" class="codetxt">}</text>
+      <text x="68" y="376" class="codetxt">function update() {</text>
+      <text x="68" y="398" class="codetxt">  tick++;</text>
+      <text x="68" y="420" class="codetxt">  if (tick % 50 === 0) spawn();</text>
+      <text x="68" y="442" class="codetxt">  for (const o of items) o.y += 3;</text>
+      <text x="68" y="464" class="codetxt">  items = items.filter(o =&gt; o.y &lt; 680);</text>
+      <text x="68" y="486" class="codetxt">}</text>
+      <text x="68" y="508" class="codetxt">function loop() { update(); drawEnemies(); requestAnimationFrame(loop); }</text>
+      <text x="68" y="530" class="codetxt">loop();</text>
+      <text x="48" y="570" font-size="16">drawEnemies() creates one rect per enemy inside #objects.</text>
+      <text x="48" y="596" font-size="16" class="muted">Full working version: examples/pixel-dodge.svg</text>
+    </g>
+
+    <!-- PAGE 4: HITS -->
+    <g id="p4" class="page">
+      <text x="48" y="190" font-size="26" class="head">Part 4: Detect a hit</text>
+      <text x="48" y="224" font-size="16">Two boxes touch when they overlap on BOTH x and y.</text>
+      <image href="guide-assets/04-collision.svg" x="48" y="240" width="520" height="260" preserveAspectRatio="xMidYMid meet"/>
+      <rect class="codebg" x="600" y="240" width="552" height="200"/>
+      <text x="618" y="266" class="codetxt">for (const o of items) {</text>
+      <text x="618" y="288" class="codetxt">  const hitY = o.y + 14 &gt; 580 &amp;&amp; o.y &lt; 604;</text>
+      <text x="618" y="310" class="codetxt">  const hitX = o.x + o.w &gt; px &amp;&amp; o.x &lt; px + 48;</text>
+      <text x="618" y="332" class="codetxt">  if (hitY &amp;&amp; hitX) alive = false;</text>
+      <text x="618" y="354" class="codetxt">}</text>
+      <text x="600" y="484" font-size="16">Also add at the top of update():</text>
+      <rect class="codebg" x="600" y="496" width="552" height="36"/>
+      <text x="618" y="520" class="codetxt">if (!alive) return;   // stop when the game is over</text>
+      <text x="48" y="558" font-size="16" class="muted">Note: the code above uses &amp;&amp; (AND). Write it as two ampersands.</text>
+    </g>
+
+    <!-- PAGE 5: SCORE -->
+    <g id="p5" class="page">
+      <text x="48" y="190" font-size="26" class="head">Part 5: Score, game over, restart</text>
+      <text x="48" y="224" font-size="16">Score grows as time passes. Show a panel when you lose.</text>
+      <rect class="codebg" x="48" y="240" width="1104" height="210"/>
+      <text x="68" y="266" class="codetxt">let score = 0, alive = true;</text>
+      <text x="68" y="288" class="codetxt">// inside update(), after tick++:</text>
+      <text x="68" y="310" class="codetxt">score = Math.floor(tick / 6);</text>
+      <text x="68" y="340" class="codetxt">// on a hit, show the game over panel:</text>
+      <text x="68" y="362" class="codetxt">over.setAttribute('visibility', 'visible');</text>
+      <text x="68" y="392" class="codetxt">function reset() {</text>
+      <text x="68" y="414" class="codetxt">  px = 216; items = []; tick = 0; score = 0; alive = true;</text>
+      <text x="68" y="436" class="codetxt">  over.setAttribute('visibility', 'hidden');</text>
+      <text x="68" y="458" class="codetxt">}</text>
+      <text x="48" y="492" font-size="16">Connect reset() to the restart button with a click listener.</text>
+      <text x="48" y="518" font-size="16" class="muted">The complete version is in examples/pixel-dodge.svg.</text>
+    </g>
+
+    <!-- PAGE 6: FINISH -->
+    <g id="p6" class="page">
+      <text x="48" y="190" font-size="26" class="head">Part 6: Test and finish</text>
+      <text x="48" y="232" font-size="18" class="head">Check it works:</text>
+      <text x="48" y="266" font-size="16">1. Open it in Chrome, Firefox and Edge.</text>
+      <text x="48" y="294" font-size="16">2. Press F12 and read the Console. Red text = a bug.</text>
+      <text x="48" y="322" font-size="16">3. Blank page? Look for a missing ">" or quote mark.</text>
+      <text x="48" y="350" font-size="16">4. Compare with examples/pixel-dodge.svg.</text>
+
+      <text x="48" y="412" font-size="18" class="head">Common problems:</text>
+      <text x="48" y="446" font-size="16">Nothing shows     -&gt; missing viewBox, or a tag typo.</text>
+      <text x="48" y="474" font-size="16">getElementById null -&gt; the id does not match exactly.</text>
+      <text x="48" y="502" font-size="16">Too fast or slow  -&gt; change the numbers (8, 3, 50).</text>
+
+      <text x="48" y="560" font-size="18" class="head">Next step:</text>
+      <text x="48" y="594" font-size="16">Change the colours, add a second enemy type, or build</text>
+      <text x="48" y="620" font-size="16">Snake, Pong or Breakout from the Games page.</text>
+      <a href="games.svg"><g class="tab" transform="translate(48 660)"><rect width="200" height="44"/><text x="100" y="28" text-anchor="middle" font-size="15" class="head">GO TO GAMES</text></g></a>
+    </g>
+
+    <!-- Footer -->
+    <line x1="20" y1="800" x2="1180" y2="800" stroke="#1d262b" stroke-width="3"/>
+    <text x="48" y="840" font-size="14">SVG YSWS · make a game in SVG</text>
+    <a href="https://forms.hackclub.com/bounty" target="_blank">
+      <text x="600" y="840" text-anchor="middle" font-size="14" class="head">Fulfillment Bounty</text>
+    </a>
+    <a href="https://hackclub.com/privacy-and-terms" target="_blank">
+      <text x="1152" y="840" text-anchor="end" font-size="14" class="head">Privacy and Terms</text>
+    </a>
+  </g>
+
+  <script><![CDATA[
+    function fit() {
+      const W = window.innerWidth, H = window.innerHeight;
+      document.getElementById('root').setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+      const s = W < 700 ? W / 1200 : Math.min(W / 1200, H / 900);
+      const tx = (W - 1200 * s) / 2, ty = (H - 900 * s) / 2;
+      document.getElementById('stage').setAttribute('transform', 'translate(' + tx + ' ' + ty + ') scale(' + s + ')');
+    }
+    window.addEventListener('resize', fit);
+    fit();
+
+    // Tabs: show one page at a time
+    document.querySelectorAll('.tab[data-page]').forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        const target = tab.getAttribute('data-page');
+        document.querySelectorAll('.tab[data-page]').forEach(function (t) { t.classList.remove('on'); });
+        tab.classList.add('on');
+        document.querySelectorAll('.page').forEach(function (p) {
+          p.classList.toggle('on', p.id === target);
+        });
+      });
+    });
+  ]]></script>
+</svg>

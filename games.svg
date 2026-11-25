@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="root" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1200 900" style="display:block;touch-action:none">
+  <title>SVG YSWS: Games</title>
+  <desc>Games made with SVG. Play Pong here, open Pixel Dodge.</desc>
+
+  <style>
+    text { font-family: 'Courier New', Courier, monospace; fill: #1d262b; }
+    .head { font-weight: bold; }
+    .muted { fill: #5b5b4a; }
+    .nav { cursor: pointer; }
+    .nav rect { fill: #efe6cf; stroke: #1d262b; stroke-width: 3; }
+    .nav text { font-size: 14px; font-weight: bold; }
+    .btn { cursor: pointer; }
+    .btn rect { fill: #8bac0f; stroke: #1d262b; stroke-width: 3; }
+    .btn text { font-size: 16px; font-weight: bold; fill: #0f380f; }
+    .btn:hover rect { fill: #9bbc0f; }
+    .card { fill: #f7f1de; stroke: #1d262b; stroke-width: 3; }
+    .tag { font-size: 13px; font-weight: bold; }
+    .tag-live { fill: #0f380f; }
+    .tag-soon { fill: #a8345a; }
+  </style>
+
+  <rect x="-4000" y="-4000" width="9000" height="9000" fill="#efe6cf"/>
+
+  <g id="stage">
+    <rect x="20" y="20" width="1160" height="860" fill="none" stroke="#1d262b" stroke-width="6"/>
+
+    <!-- Top bar -->
+    <image href="favicon.png" x="48" y="40" width="22" height="34" preserveAspectRatio="xMidYMid meet"/>
+    <text x="80" y="64" font-size="22" class="head">SVG YSWS</text>
+    <a href="index.svg"><g class="nav" transform="translate(620 42)"><rect width="110" height="34"/><text x="55" y="22" text-anchor="middle">HOME</text></g></a>
+    <g class="nav" transform="translate(745 42)"><rect width="120" height="34" style="fill:#1d262b"/><text x="60" y="22" text-anchor="middle" style="fill:#efe6cf">GAMES</text></g>
+    <a href="SVG-GAME-GUIDE.svg"><g class="nav" transform="translate(880 42)"><rect width="110" height="34"/><text x="55" y="22" text-anchor="middle">GUIDE</text></g></a>
+    <line x1="20" y1="100" x2="1180" y2="100" stroke="#1d262b" stroke-width="3"/>
+
+    <text x="60" y="170" font-size="56" class="head">GAMES</text>
+    <text x="60" y="206" font-size="18" class="muted">Play Pong below. Open Pixel Dodge. The rest are ideas to build.</text>
+
+    <!-- Pong: playable. Field origin is translate(60 260) -->
+    <text x="60" y="256" font-size="16" class="head">PONG · PLAYABLE HERE</text>
+    <g transform="translate(60 268)">
+      <rect width="380" height="260" fill="#9bbc0f" stroke="#1d262b" stroke-width="5"/>
+      <line x1="190" y1="0" x2="190" y2="260" stroke="#306230" stroke-width="3" stroke-dasharray="6 8"/>
+      <rect id="pong-me" x="12" y="105" width="10" height="50" fill="#0f380f"/>
+      <rect id="pong-ai" x="358" y="105" width="10" height="50" fill="#0f380f"/>
+      <rect id="pong-ball" x="180" y="120" width="8" height="8" fill="#0f380f"/>
+      <rect id="pong-hit" x="0" y="0" width="380" height="260" fill="transparent"/>
+    </g>
+    <text x="60" y="560" font-size="14" class="muted">Move the mouse (or your finger) over the green box.</text>
+
+    <!-- Game cards -->
+    <g transform="translate(500 256)">
+      <rect class="card" width="620" height="92"/>
+      <text x="24" y="38" font-size="22" class="head">PIXEL DODGE</text>
+      <text x="24" y="66" font-size="15" class="muted">Dodge falling blocks. Score as you survive.</text>
+      <text x="596" y="38" text-anchor="end" class="tag tag-live">PLAYABLE</text>
+      <a href="examples/pixel-dodge.svg"><g class="btn" transform="translate(470 50)"><rect width="126" height="30"/><text x="63" y="21" text-anchor="middle" style="font-size:13px">OPEN</text></g></a>
+    </g>
+
+    <g transform="translate(500 370)">
+      <rect class="card" width="620" height="92"/>
+      <text x="24" y="38" font-size="22" class="head">PONG</text>
+      <text x="24" y="66" font-size="15" class="muted">Classic paddle game. Play it on this page.</text>
+      <text x="596" y="38" text-anchor="end" class="tag tag-live">PLAYABLE</text>
+    </g>
+
+    <g transform="translate(500 484)">
+      <rect class="card" width="620" height="92"/>
+      <text x="24" y="38" font-size="22" class="head">SNAKE</text>
+      <text x="24" y="66" font-size="15" class="muted">Eat, grow, do not hit yourself.</text>
+      <text x="596" y="38" text-anchor="end" class="tag tag-soon">COMING SOON</text>
+    </g>
+
+    <g transform="translate(500 598)">
+      <rect class="card" width="620" height="92"/>
+      <text x="24" y="38" font-size="22" class="head">BREAKOUT</text>
+      <text x="24" y="66" font-size="15" class="muted">Smash the bricks with a bouncing ball.</text>
+      <text x="596" y="38" text-anchor="end" class="tag tag-soon">COMING SOON</text>
+    </g>
+
+    <g transform="translate(60 610)">
+      <rect class="card" width="380" height="80"/>
+      <text x="24" y="36" font-size="18" class="head">SPACE INVADERS</text>
+      <text x="24" y="60" font-size="14" class="muted">Shoot the falling rows.</text>
+      <text x="356" y="36" text-anchor="end" class="tag tag-soon">COMING SOON</text>
+    </g>
+
+    <!-- Footer -->
+    <line x1="20" y1="800" x2="1180" y2="800" stroke="#1d262b" stroke-width="3"/>
+    <text x="48" y="840" font-size="14">SVG YSWS · make a game in SVG</text>
+    <a href="https://forms.hackclub.com/bounty" target="_blank">
+      <text x="600" y="840" text-anchor="middle" font-size="14" class="head">Fulfillment Bounty</text>
+    </a>
+    <a href="https://hackclub.com/privacy-and-terms" target="_blank">
+      <text x="1152" y="840" text-anchor="end" font-size="14" class="head">Privacy and Terms</text>
+    </a>
+  </g>
+
+  <script><![CDATA[
+    function fit() {
+      const W = window.innerWidth, H = window.innerHeight;
+      document.getElementById('root').setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+      const s = W < 700 ? W / 1200 : Math.min(W / 1200, H / 900);
+      const tx = (W - 1200 * s) / 2, ty = (H - 900 * s) / 2;
+      document.getElementById('stage').setAttribute('transform', 'translate(' + tx + ' ' + ty + ') scale(' + s + ')');
+    }
+    window.addEventListener('resize', fit);
+    fit();
+
+    // Pong
+    const root = document.getElementById('root');
+    const me = document.getElementById('pong-me');
+    const ai = document.getElementById('pong-ai');
+    const ball = document.getElementById('pong-ball');
+    const hit = document.getElementById('pong-hit');
+    const FW = 380, FH = 260, PAD = 50, PAD_W = 10, BALL = 8;
+    let bx = 180, by = 120, vx = 3, vy = 2, my = 105, ay = 105;
+
+    function pointerToField(e) {
+      const pt = root.createSVGPoint();
+      pt.x = e.clientX; pt.y = e.clientY;
+      const loc = pt.matrixTransform(document.getElementById('stage').getScreenCTM().inverse());
+      return { x: loc.x - 60, y: loc.y - 268 };
+    }
+
+    hit.addEventListener('pointermove', function (e) {
+      const p = pointerToField(e);
+      my = Math.max(0, Math.min(FH - PAD, p.y - PAD / 2));
+    });
+
+    function pongStep() {
+      bx += vx; by += vy;
+      if (by <= 0 || by + BALL >= FH) vy = -vy;
+      if (bx <= 12 + PAD_W && bx + BALL >= 12 && by + BALL >= my && by <= my + PAD) vx = Math.abs(vx);
+      if (bx + BALL >= FW - 12 - PAD_W && bx <= FW - 12 && by + BALL >= ay && by <= ay + PAD) vx = -Math.abs(vx);
+      if (bx < -20 || bx > FW + 20) { bx = 180; by = 120; vx = -vx; }
+      ay += (by - ay - PAD / 2 + BALL / 2) * 0.06;
+      ay = Math.max(0, Math.min(FH - PAD, ay));
+      me.setAttribute('y', my);
+      ai.setAttribute('y', ay);
+      ball.setAttribute('x', bx);
+      ball.setAttribute('y', by);
+      requestAnimationFrame(pongStep);
+    }
+    pongStep();
+  ]]></script>
+</svg>

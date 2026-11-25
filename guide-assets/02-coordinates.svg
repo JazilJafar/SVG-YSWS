@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400">
+  <title>SVG coordinates: origin is top-left, y goes down</title>
+  <rect width="600" height="400" fill="#0c1217"/>
+  <rect x="60" y="60" width="480" height="300" fill="none" stroke="#34414a" stroke-width="2"/>
+  <circle cx="60" cy="60" r="7" fill="#e8943f"/>
+  <text x="74" y="50" font-family="Courier New, monospace" font-size="16" fill="#f4efdf">(0, 0)</text>
+  <line x1="60" y1="60" x2="540" y2="60" stroke="#e8943f" stroke-width="2"/>
+  <text x="540" y="46" text-anchor="end" font-family="Courier New, monospace" font-size="16" fill="#e8943f">x grows right</text>
+  <line x1="60" y1="60" x2="60" y2="340" stroke="#9bd36b" stroke-width="2"/>
+  <text x="72" y="330" font-family="Courier New, monospace" font-size="16" fill="#9bd36b">y grows down</text>
+  <rect x="240" y="180" width="60" height="30" fill="#9bd36b"/>
+  <text x="270" y="232" text-anchor="middle" font-family="Courier New, monospace" font-size="15" fill="#f4efdf">x=240 y=180</text>
+</svg>

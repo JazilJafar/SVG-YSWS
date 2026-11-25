@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="300" viewBox="0 0 600 300">
+  <title>Collision: boxes overlap on both x and y</title>
+  <rect width="600" height="300" fill="#0c1217"/>
+  <rect x="80" y="160" width="140" height="50" fill="#9bd36b" fill-opacity="0.85"/>
+  <text x="150" y="190" text-anchor="middle" font-family="Courier New, monospace" font-size="14" fill="#0c1217">PLAYER</text>
+  <rect x="150" y="60" width="90" height="24" fill="#ff7b87" fill-opacity="0.85"/>
+  <text x="195" y="77" text-anchor="middle" font-family="Courier New, monospace" font-size="13" fill="#0c1217">ENEMY</text>
+  <rect x="150" y="160" width="70" height="50" fill="none" stroke="#e8943f" stroke-width="3" stroke-dasharray="6 4"/>
+  <text x="300" y="150" font-family="Courier New, monospace" font-size="15" fill="#e8943f">overlap on x AND y = hit</text>
+  <text x="300" y="180" font-family="Courier New, monospace" font-size="14" fill="#f4efdf">no overlap on x or y = safe</text>
+</svg>

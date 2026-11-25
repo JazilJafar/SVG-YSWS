@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="300" viewBox="0 0 600 300">
+  <title>The player: a 48 by 24 rectangle near the bottom</title>
+  <rect width="600" height="300" fill="#0c1217"/>
+  <rect x="0" y="260" width="600" height="2" fill="#34414a"/>
+  <rect x="216" y="236" width="48" height="24" fill="#9bd36b"/>
+  <line x1="216" y1="226" x2="264" y2="226" stroke="#e8943f" stroke-width="2"/>
+  <text x="240" y="220" text-anchor="middle" font-family="Courier New, monospace" font-size="14" fill="#e8943f">48 wide</text>
+  <line x1="274" y1="236" x2="274" y2="260" stroke="#e8943f" stroke-width="2"/>
+  <text x="284" y="252" font-family="Courier New, monospace" font-size="14" fill="#e8943f">24 tall</text>
+  <text x="216" y="200" font-family="Courier New, monospace" font-size="14" fill="#f4efdf">x=216, y=236</text>
+</svg>

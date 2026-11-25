@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="220" viewBox="0 0 600 220">
+  <title>Basic SVG shapes</title>
+  <rect width="600" height="220" fill="#0c1217"/>
+  <rect x="40" y="50" width="120" height="80" fill="#9bd36b"/>
+  <text x="100" y="155" text-anchor="middle" font-family="Courier New, monospace" font-size="16" fill="#f4efdf">&lt;rect&gt;</text>
+  <circle cx="300" cy="90" r="45" fill="#ff7b87"/>
+  <text x="300" y="155" text-anchor="middle" font-family="Courier New, monospace" font-size="16" fill="#f4efdf">&lt;circle&gt;</text>
+  <path d="M440 130 L500 40 L560 130 Z" fill="#e8943f"/>
+  <text x="500" y="175" text-anchor="middle" font-family="Courier New, monospace" font-size="16" fill="#f4efdf">&lt;path&gt;</text>
+</svg>
